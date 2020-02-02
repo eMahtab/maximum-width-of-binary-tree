@@ -56,10 +56,11 @@ Input:
      /         \
     6           7
 Output: 8
-Explanation:The maximum width existing in the fourth level with the length 8 (6,null,null,null,null,null,null,7).
+Explanation:
+The maximum width existing in the fourth level with the length 8 (6,null,null,null,null,null,null,7).
 ```
 
-**Note: Answer will in the range of 32-bit signed integer.**
+**Note: Answer will be in the range of 32-bit signed integer.**
 
 ## Implementation :
 
