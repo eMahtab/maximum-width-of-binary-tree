@@ -82,9 +82,9 @@ The maximum width existing in the fourth level with the length 8 (6,null,null,nu
 class Solution {
     class Node {
         TreeNode treeNode;
-        int index;
-        Node(TreeNode treeNode, int index) {
-            this.treeNode = treeNode; this.index = index;
+        int position;
+        Node(TreeNode treeNode, int position) {
+            this.treeNode = treeNode; this.position = position;
         }
     }
     public int widthOfBinaryTree(TreeNode root) {
@@ -99,13 +99,13 @@ class Solution {
             for(int i = 0; i < size; i++) {
                 Node node = q.remove();
                 if(i == 0)
-                    left = node.index;
+                    left = node.position;
                 if(i == size-1)
-                    right = node.index;
+                    right = node.position;
                 if(node.treeNode.left != null)
-                    q.add(new Node(node.treeNode.left, 2 * node.index));
+                    q.add(new Node(node.treeNode.left, 2 * node.position));
                 if(node.treeNode.right != null)
-                    q.add(new Node(node.treeNode.right, 2 * node.index + 1));
+                    q.add(new Node(node.treeNode.right, 2 * node.position + 1));
             }
             int width = (right - left) + 1;
             maxWidth = Math.max(maxWidth, width);
