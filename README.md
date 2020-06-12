@@ -62,7 +62,7 @@ The maximum width existing in the fourth level with the length 8 (6,null,null,nu
 
 **Note: Answer will be in the range of 32-bit signed integer.**
 
-## Implementation 1 : Iterative
+## Implementation 1 : Iterative  Time : O(nodes in tree) , Space : O(nodes in tree)
 ```java
 /**
  * Definition for a binary tree node.
@@ -115,7 +115,7 @@ class Solution {
 }
 ```
 
-## Implementation 2 : Recursive
+## Implementation 2 : Recursive Time : O(nodes in tree) , Space : O(nodes in tree)
 
 ```java
 
