@@ -62,7 +62,60 @@ The maximum width existing in the fourth level with the length 8 (6,null,null,nu
 
 **Note: Answer will be in the range of 32-bit signed integer.**
 
-## Implementation :
+## Implementation 1 : Iterative
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    class Node {
+        TreeNode treeNode;
+        int index;
+        Node(TreeNode treeNode, int index) {
+            this.treeNode = treeNode; this.index = index;
+        }
+    }
+    public int widthOfBinaryTree(TreeNode root) {
+        if(root == null)
+            return 0;
+        Queue<Node> q = new LinkedList<>();
+        int maxWidth = 1;
+        q.add(new Node(root, 0));
+        while(!q.isEmpty()) {
+            int size = q.size();
+            int left = 0, right = 0;
+            for(int i = 0; i < size; i++) {
+                Node node = q.remove();
+                if(i == 0)
+                    left = node.index;
+                if(i == size-1)
+                    right = node.index;
+                if(node.treeNode.left != null)
+                    q.add(new Node(node.treeNode.left, 2 * node.index));
+                if(node.treeNode.right != null)
+                    q.add(new Node(node.treeNode.right, 2 * node.index + 1));
+            }
+            int width = (right - left) + 1;
+            maxWidth = Math.max(maxWidth, width);
+        }
+       return maxWidth; 
+    }
+}
+```
+
+## Implementation 2 : Recursive
 
 ```java
 
